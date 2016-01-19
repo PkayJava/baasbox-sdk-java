@@ -16,6 +16,7 @@ import retrofit.client.OkClient;
 import retrofit.converter.GsonConverter;
 
 import java.io.IOException;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -619,6 +620,269 @@ public class BaasBox {
                 json.setCustom(request.getCustom());
             }
             SuccessResponse response = this.client.sendPushNotification(session, json);
+            return response;
+        } catch (RetrofitError error) {
+            System.out.println(error.getMessage());
+            try {
+                ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
+                response.setHttpCode(error.getResponse().getStatus());
+                return response;
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    public Response createNewCollection(String collection) {
+        try {
+            SuccessResponse response = this.client.createNewCollection(session, collection, "mock");
+            return response;
+        } catch (RetrofitError error) {
+            System.out.println(error.getMessage());
+            try {
+                ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
+                response.setHttpCode(error.getResponse().getStatus());
+                return response;
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    public Response deleteCollection(String collection) {
+        try {
+            SuccessResponse response = this.client.deleteCollection(session, collection);
+            return response;
+        } catch (RetrofitError error) {
+            System.out.println(error.getMessage());
+            try {
+                ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
+                response.setHttpCode(error.getResponse().getStatus());
+                return response;
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    public Response createDocument(String collection, Map<String, Object> document) {
+        try {
+            SuccessResponse response = this.client.createDocument(session, collection, document);
+            return response;
+        } catch (RetrofitError error) {
+            System.out.println(error.getMessage());
+            try {
+                ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
+                response.setHttpCode(error.getResponse().getStatus());
+                return response;
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    public Response retrieveDocumentById(String collection, String id) {
+        try {
+            SuccessResponse response = this.client.retrieveDocumentById(session, collection, id);
+            return response;
+        } catch (RetrofitError error) {
+            System.out.println(error.getMessage());
+            try {
+                ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
+                response.setHttpCode(error.getResponse().getStatus());
+                return response;
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    public Response retrieveDocumentByQuery(String collection) {
+        try {
+            SuccessResponse response = this.client.retrieveDocumentByQuery(session, collection);
+            return response;
+        } catch (RetrofitError error) {
+            System.out.println(error.getMessage());
+            try {
+                ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
+                response.setHttpCode(error.getResponse().getStatus());
+                return response;
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    public Response countDocument(String collection) {
+        try {
+            SuccessResponse response = this.client.countDocument(session, collection);
+            return response;
+        } catch (RetrofitError error) {
+            System.out.println(error.getMessage());
+            try {
+                ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
+                response.setHttpCode(error.getResponse().getStatus());
+                return response;
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    public Response modifyDocument(String collection, String id, Map<String, Object> document) {
+        try {
+            SuccessResponse response = this.client.modifyDocument(session, collection, id, document);
+            return response;
+        } catch (RetrofitError error) {
+            System.out.println(error.getMessage());
+            try {
+                ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
+                response.setHttpCode(error.getResponse().getStatus());
+                return response;
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    public Response updateDocumentField(String collection, String id, String field, Object data) {
+        try {
+            SuccessResponse response = this.client.updateDocumentField(session, collection, id, field, data);
+            return response;
+        } catch (RetrofitError error) {
+            System.out.println(error.getMessage());
+            try {
+                ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
+                response.setHttpCode(error.getResponse().getStatus());
+                return response;
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    public Response deleteDocument(String collection, String id) {
+        try {
+            SuccessResponse response = this.client.deleteDocument(session, collection, id);
+            return response;
+        } catch (RetrofitError error) {
+            System.out.println(error.getMessage());
+            try {
+                ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
+                response.setHttpCode(error.getResponse().getStatus());
+                return response;
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    public Response grantPermissionsDocument(UsernamePermissionsDocumentRequest request) {
+        try {
+            SuccessResponse response = this.client.grantPermissionsDocumentUsername(session, request.getCollection(), request.getId(), request.getAction(), request.getUsername(), "mock");
+            return response;
+        } catch (RetrofitError error) {
+            System.out.println(error.getMessage());
+            try {
+                ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
+                response.setHttpCode(error.getResponse().getStatus());
+                return response;
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    public Response grantPermissionsDocument(RoleNamePermissionsDocumentRequest request) {
+        try {
+            SuccessResponse response = this.client.grantPermissionsDocumentRoleName(session, request.getCollection(), request.getId(), request.getAction(), request.getRolename(), "mock");
+            return response;
+        } catch (RetrofitError error) {
+            System.out.println(error.getMessage());
+            try {
+                ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
+                response.setHttpCode(error.getResponse().getStatus());
+                return response;
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    public Response revokePermissionsDocumentUsername(UsernamePermissionsDocumentRequest request) {
+        try {
+            SuccessResponse response = this.client.revokePermissionsDocumentUsername(session, request.getCollection(), request.getId(), request.getAction(), request.getUsername());
+            return response;
+        } catch (RetrofitError error) {
+            System.out.println(error.getMessage());
+            try {
+                ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
+                response.setHttpCode(error.getResponse().getStatus());
+                return response;
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    public Response revokePermissionsDocumentUsername(RoleNamePermissionsDocumentRequest request) {
+        try {
+            SuccessResponse response = this.client.revokePermissionsDocumentRoleName(session, request.getCollection(), request.getId(), request.getAction(), request.getRolename());
+            return response;
+        } catch (RetrofitError error) {
+            System.out.println(error.getMessage());
+            try {
+                ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
+                response.setHttpCode(error.getResponse().getStatus());
+                return response;
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    public Response createLink(CreateLinkRequest request) {
+        try {
+            if (appCode != null && !"".equals(appCode) && session != null && !"".equals(session)) {
+                SuccessResponse response = this.client.createLink(appCode, session, request.getSourceId(), request.getLabel(), request.getDestinationId(), "mock");
+                return response;
+            }
+            if (session != null && !"".equals(session)) {
+                SuccessResponse response = this.client.createLink(session, request.getSourceId(), request.getLabel(), request.getDestinationId(), "mock");
+                return response;
+            }
+        } catch (RetrofitError error) {
+            System.out.println(error.getMessage());
+            try {
+                ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
+                response.setHttpCode(error.getResponse().getStatus());
+                return response;
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return null;
+    }
+
+    public Response retrieveLink(String id) {
+        try {
+            SuccessResponse response = this.client.retrieveLink(appCode, session, id);
+            return response;
+        } catch (RetrofitError error) {
+            System.out.println(error.getMessage());
+            try {
+                ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
+                response.setHttpCode(error.getResponse().getStatus());
+                return response;
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    public Response retrieveLink() {
+        try {
+            SuccessResponse response = this.client.retrieveLink(appCode, session);
             return response;
         } catch (RetrofitError error) {
             System.out.println(error.getMessage());

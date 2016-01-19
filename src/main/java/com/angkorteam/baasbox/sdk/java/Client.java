@@ -6,6 +6,8 @@ import com.angkorteam.baasbox.sdk.java.response.SuccessResponse;
 import retrofit.client.Response;
 import retrofit.http.*;
 
+import java.util.Map;
+
 /**
  * Created by socheatkhauv on 1/14/16.
  */
@@ -198,5 +200,56 @@ public interface Client {
 
     @POST("/push/message")
     public SuccessResponse sendPushNotification(@Header("X-BB-SESSION") String session, @Body SendPushNotificationJson json);
+
+    @POST("/admin/collection/{collection}")
+    public SuccessResponse createNewCollection(@Header("X-BB-SESSION") String session, @Path("collection") String collection, @Body String mock);
+
+    @DELETE("/admin/collection/{collection}")
+    public SuccessResponse deleteCollection(@Header("X-BB-SESSION") String session, @Path("collection") String collection);
+
+    @POST("/document/{collection}")
+    public SuccessResponse createDocument(@Header("X-BB-SESSION") String session, @Path("collection") String collection, @Body Map<String, Object> document);
+
+    @GET("/document/{collection}/{id}")
+    public SuccessResponse retrieveDocumentById(@Header("X-BB-SESSION") String session, @Path("collection") String collection, @Path("id") String id);
+
+    @GET("/document/{collection}")
+    public SuccessResponse retrieveDocumentByQuery(@Header("X-BB-SESSION") String session, @Path("collection") String collection);
+
+    @GET("/document/{collection}/count")
+    public SuccessResponse countDocument(@Header("X-BB-SESSION") String session, @Path("collection") String collection);
+
+    @PUT("/document/{collection}/{id}")
+    public SuccessResponse modifyDocument(@Header("X-BB-SESSION") String session, @Path("collection") String collection, @Path("id") String id, @Body Map<String, Object> document);
+
+    @PUT("/document/{collection}/{id}/.{field}")
+    public SuccessResponse updateDocumentField(@Header("X-BB-SESSION") String session, @Path("collection") String collection, @Path("id") String id, @Path("field") String field, @Body Object data);
+
+    @DELETE("/document/{collection}/{id}")
+    public SuccessResponse deleteDocument(@Header("X-BB-SESSION") String session, @Path("collection") String collection, @Path("id") String id);
+
+    @PUT("/document/{collection}/{id}/{action}/user/{username}")
+    public SuccessResponse grantPermissionsDocumentUsername(@Header("X-BB-SESSION") String session, @Path("collection") String collection, @Path("id") String id, @Path("action") String action, @Path("username") String username, @Body String mock);
+
+    @PUT("/document/{collection}/{id}/{action}/role/{rolename}")
+    public SuccessResponse grantPermissionsDocumentRoleName(@Header("X-BB-SESSION") String session, @Path("collection") String collection, @Path("id") String id, @Path("action") String action, @Path("rolename") String rolename, @Body String mock);
+
+    @DELETE("/document/{collection}/{id}/{action}/user/{username}")
+    public SuccessResponse revokePermissionsDocumentUsername(@Header("X-BB-SESSION") String session, @Path("collection") String collection, @Path("id") String id, @Path("action") String action, @Path("username") String username);
+
+    @DELETE("/document/{collection}/{id}/{action}/role/{rolename}")
+    public SuccessResponse revokePermissionsDocumentRoleName(@Header("X-BB-SESSION") String session, @Path("collection") String collection, @Path("id") String id, @Path("action") String action, @Path("rolename") String rolename);
+
+    @POST("/link/{sourceId}/{label}/{destinationId}")
+    public SuccessResponse createLink(@Header("X-BAASBOX-APPCODE") String appCode, @Header("X-BB-SESSION") String session, @Path("sourceId") String sourceId, @Path("label") String label, @Path("destinationId") String destinationId, @Body String mock);
+
+    @POST("/link/{sourceId}/{label}/{destinationId}")
+    public SuccessResponse createLink(@Header("X-BB-SESSION") String session, @Path("sourceId") String sourceId, @Path("label") String label, @Path("destinationId") String destinationId, @Body String mock);
+
+    @GET("/link/{id}")
+    public SuccessResponse retrieveLink(@Header("X-BAASBOX-APPCODE") String appCode, @Header("X-BB-SESSION") String session, @Path("id") String id);
+
+    @GET("/link")
+    public SuccessResponse retrieveLink(@Header("X-BAASBOX-APPCODE") String appCode, @Header("X-BB-SESSION") String session);
 
 }
