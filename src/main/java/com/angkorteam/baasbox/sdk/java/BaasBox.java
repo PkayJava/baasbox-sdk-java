@@ -14,8 +14,12 @@ import retrofit.RestAdapter;
 import retrofit.RetrofitError;
 import retrofit.client.OkClient;
 import retrofit.converter.GsonConverter;
+import retrofit.mime.TypedFile;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.URLConnection;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
@@ -896,4 +900,108 @@ public class BaasBox {
         }
     }
 
+    public Response uploadFile(File file, Map<String, Object> attachedData, Map<String, Object> acl) {
+        try {
+            String mineType = URLConnection.guessContentTypeFromName(file.getAbsolutePath());
+            String jsonAttachedData = null;
+            if (attachedData != null && !attachedData.isEmpty()) {
+                jsonAttachedData = gson.toJson(attachedData);
+            }
+            String jsonAcl = null;
+            if (acl != null && !acl.isEmpty()) {
+                jsonAcl = gson.toJson(acl);
+            }
+            SuccessResponse response = this.client.uploadFile(session, new TypedFile(mineType, file), jsonAttachedData, jsonAcl);
+            return response;
+        } catch (RetrofitError error) {
+            System.out.println(error.getMessage());
+            try {
+                ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
+                response.setHttpCode(error.getResponse().getStatus());
+                return response;
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    public Response deleteFile(String id) {
+        try {
+            SuccessResponse response = this.client.deleteFile(session, id);
+            return response;
+        } catch (RetrofitError error) {
+            System.out.println(error.getMessage());
+            try {
+                ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
+                response.setHttpCode(error.getResponse().getStatus());
+                return response;
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    public Response retrieveFile(String id) {
+        try {
+            retrofit.client.Response resp = this.client.retrieveFile(session, id);
+            SuccessResponse response = new SuccessResponse();
+            response.setData(new LinkedHashMap<>());
+            long length = resp.getBody().length();
+            response.getData().put("length", length);
+            response.getData().put("mimeType", resp.getBody().mimeType());
+            try {
+                byte[] content = IOUtils.toByteArray(resp.getBody().in());
+                response.getData().put("content", content);
+                if (length == -1) {
+                    response.getData().put("length", content.length);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            response.setHttpCode(resp.getStatus());
+            response.setResult(resp.getReason());
+            return response;
+        } catch (RetrofitError error) {
+            System.out.println(error.getMessage());
+            try {
+                ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
+                response.setHttpCode(error.getResponse().getStatus());
+                return response;
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    public Response retrieveFileDetail(String id) {
+        try {
+            SuccessResponse response = this.client.retrieveFileDetail(session, id);
+            return response;
+        } catch (RetrofitError error) {
+            System.out.println(error.getMessage());
+            try {
+                ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
+                response.setHttpCode(error.getResponse().getStatus());
+                return response;
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    public Response retrieveFilesDetail() {
+        try {
+            SuccessResponse response = this.client.retrieveFilesDetail(session);
+            return response;
+        } catch (RetrofitError error) {
+            System.out.println(error.getMessage());
+            try {
+                ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
+                response.setHttpCode(error.getResponse().getStatus());
+                return response;
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
 }

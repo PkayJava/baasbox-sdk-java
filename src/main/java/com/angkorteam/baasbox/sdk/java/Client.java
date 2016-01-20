@@ -5,6 +5,7 @@ import com.angkorteam.baasbox.sdk.java.response.LogoutResponse;
 import com.angkorteam.baasbox.sdk.java.response.SuccessResponse;
 import retrofit.client.Response;
 import retrofit.http.*;
+import retrofit.mime.TypedFile;
 
 import java.util.Map;
 
@@ -251,5 +252,28 @@ public interface Client {
 
     @GET("/link")
     public SuccessResponse retrieveLink(@Header("X-BAASBOX-APPCODE") String appCode, @Header("X-BB-SESSION") String session);
+
+    @Multipart
+    @POST("/file")
+    public SuccessResponse uploadFile(@Header("X-BB-SESSION") String session, @Part("file") TypedFile file, @Part("attachedData") String attachedData, @Part("acl") String acl);
+
+    @DELETE("/file/{id}")
+    public SuccessResponse deleteFile(@Header("X-BB-SESSION") String session, @Path("id") String id);
+
+    @GET("/file/{id}")
+    @Streaming
+    public Response retrieveFile(@Header("X-BB-SESSION") String session, @Path("id") String id);
+
+    @GET("/file/details/{id}")
+    public SuccessResponse retrieveFileDetail(@Header("X-BB-SESSION") String session, @Path("id") String id);
+
+    @GET("/file/details")
+    public SuccessResponse retrieveFilesDetail(@Header("X-BB-SESSION") String session);
+
+    @PUT("/file/{id}/{action}/user/{username}")
+    public SuccessResponse grantFileAccessUsername(@Header("X-BB-SESSION") String session, @Path("id") String id, @Path("action") String action, @Path("username") String username);
+
+    @PUT("/file/{id}/{action}/user/{rolename}")
+    public SuccessResponse grantFileAccessRoleName(@Header("X-BB-SESSION") String session, @Path("id") String id, @Path("action") String action, @Path("rolename") String rolename);
 
 }

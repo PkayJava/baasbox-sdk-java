@@ -1,8 +1,12 @@
 import com.angkorteam.baasbox.sdk.java.BaasBox;
 import com.angkorteam.baasbox.sdk.java.request.LoginRequest;
 import com.angkorteam.baasbox.sdk.java.response.Response;
+import com.angkorteam.baasbox.sdk.java.response.SuccessResponse;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
+import java.io.File;
+import java.util.HashMap;
 
 /**
  * Created by socheatkhauv on 1/13/16.
@@ -25,11 +29,13 @@ public class Test {
         }
         {
             Response response = baasBox.loggedUserProfile();
-            // System.out.println(gson.toJson(response));
+            System.out.println(gson.toJson(response));
         }
-        {
-            baasBox.followUser("pkayjava@gmail.com");
-        }
+//        File file = new File("/home/socheat/Documents/git/Red5/red5-server/changelog.txt");
+//        baasBox.uploadFile(file, new HashMap<>(), new HashMap<>());
+        SuccessResponse response = (SuccessResponse) baasBox.retrieveFile("c2d541fc-2297-434f-b266-4846dfa904f9");
+
+        System.out.println("tesf");
         {
 //            SignupRequest request = new SignupRequest();
 //            request.setUsername("socheat.khauv");
