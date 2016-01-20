@@ -39,12 +39,6 @@
     <dependencies>
 
         <dependency>
-            <groupId>com.angkorteam.banking.vo</groupId>
-            <artifactId>banking-vo</artifactId>
-            <version>1.0</version>
-        </dependency>
-
-        <dependency>
             <groupId>com.squareup.retrofit</groupId>
             <artifactId>retrofit</artifactId>
             <version>1.9.0</version>
