@@ -19,7 +19,7 @@ public class Test {
 
     public static void main(String[] args) {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        BaasBox baasBox = new BaasBox(IP_C, "1234567890");
+        BaasBox baasBox = new BaasBox(IP_A, "1234567890");
         {
             LoginRequest request = new LoginRequest();
             request.setUsername("socheat.khauv");
@@ -33,7 +33,7 @@ public class Test {
         }
 //        File file = new File("/home/socheat/Documents/git/Red5/red5-server/changelog.txt");
 //        baasBox.uploadFile(file, new HashMap<>(), new HashMap<>());
-        SuccessResponse response = (SuccessResponse) baasBox.retrieveFile("c2d541fc-2297-434f-b266-4846dfa904f9");
+        Response response = baasBox.retrieveAsset("test1");
 
         System.out.println("tesf");
         {

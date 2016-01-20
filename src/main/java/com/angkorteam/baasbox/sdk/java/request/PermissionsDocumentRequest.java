@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Created by socheatkhauv on 1/19/16.
  */
-public class GrantPermissionsDocumentRequest implements Serializable {
+public class PermissionsDocumentRequest implements Serializable {
 
     private String collection;
 

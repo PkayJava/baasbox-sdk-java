@@ -1,11 +1,9 @@
 package com.angkorteam.baasbox.sdk.java.request;
 
-import java.io.Serializable;
-
 /**
  * Created by socheatkhauv on 1/19/16.
  */
-public class UsernamePermissionsDocumentRequest extends GrantPermissionsDocumentRequest {
+public class UsernamePermissionsDocumentRequest extends PermissionsDocumentRequest {
 
     private String username;
 

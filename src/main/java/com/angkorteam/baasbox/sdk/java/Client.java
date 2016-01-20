@@ -271,9 +271,50 @@ public interface Client {
     public SuccessResponse retrieveFilesDetail(@Header("X-BB-SESSION") String session);
 
     @PUT("/file/{id}/{action}/user/{username}")
-    public SuccessResponse grantFileAccessUsername(@Header("X-BB-SESSION") String session, @Path("id") String id, @Path("action") String action, @Path("username") String username);
+    public SuccessResponse grantFileAccessUsername(@Header("X-BB-SESSION") String session, @Path("id") String id, @Path("action") String action, @Path("username") String username, @Body String mock);
 
     @PUT("/file/{id}/{action}/user/{rolename}")
-    public SuccessResponse grantFileAccessRoleName(@Header("X-BB-SESSION") String session, @Path("id") String id, @Path("action") String action, @Path("rolename") String rolename);
+    public SuccessResponse grantFileAccessRoleName(@Header("X-BB-SESSION") String session, @Path("id") String id, @Path("action") String action, @Path("rolename") String rolename, @Body String mock);
+
+    @DELETE("/file/{id}/{action}/user/{username}")
+    public SuccessResponse revokeFileAccessUsername(@Header("X-BB-SESSION") String session, @Path("id") String id, @Path("action") String action, @Path("username") String username);
+
+    @DELETE("/file/{id}/{action}/user/{rolename}")
+    public SuccessResponse revokeFileAccessRoleName(@Header("X-BB-SESSION") String session, @Path("id") String id, @Path("action") String action, @Path("rolename") String rolename);
+
+    @POST("/admin/asset")
+    @Multipart
+    public SuccessResponse createAsset(@Header("X-BB-SESSION") String session, @Part("name") String name, @Part("meta") String meta, @Part("file") TypedFile file);
+
+    @GET("/asset/{name}")
+    @Streaming
+    public Response retrieveAsset(@Header("X-BAASBOX-APPCODE") String appCode, @Path("name") String name);
+
+    @DELETE("/admin/asset/{name}")
+    public SuccessResponse deleteAsset(@Header("X-BB-SESSION") String session, @Path("name") String name);
+
+    @GET("/admin/asset")
+    public SuccessResponse fetchAsset(@Header("X-BB-SESSION") String session);
+
+    @GET("/admin/configuration/dump.json")
+    public SuccessResponse fetchCurrentSetting(@Header("X-BAASBOX-APPCODE") String appCode, @Header("X-BB-SESSION") String session);
+
+    @GET("/admin/configuration/{section}")
+    public SuccessResponse fetchSectionSetting(@Header("X-BAASBOX-APPCODE") String appCode, @Header("X-BB-SESSION") String session, @Path("section") String section);
+
+    @PUT("/admin/configuration/{section}/{key}/{value}")
+    public SuccessResponse updateValueSetting(@Header("X-BAASBOX-APPCODE") String appCode, @Header("X-BB-SESSION") String session, @Path("section") String section, @Path("key") String key, @Path("value") String value, @Body String mock);
+
+    @GET("/admin/endpoints")
+    public SuccessResponse listGroup(@Header("X-BAASBOX-APPCODE") String appCode, @Header("X-BB-SESSION") String session);
+
+    @GET("/admin/endpoints/{name}")
+    public SuccessResponse readSpecificGroup(@Header("X-BAASBOX-APPCODE") String appCode, @Header("X-BB-SESSION") String session, @Path("name") String name);
+
+    @PUT("/admin/endpoints/{name}/enabled")
+    public SuccessResponse enableEndpointGroup(@Header("X-BAASBOX-APPCODE") String appCode, @Header("X-BB-SESSION") String session, @Path("name") String name, @Body String mock);
+
+    @DELETE("/admin/endpoints/{name}/enabled")
+    public SuccessResponse disableEndpointGroup(@Header("X-BAASBOX-APPCODE") String appCode, @Header("X-BB-SESSION") String session, @Path("name") String name);
 
 }

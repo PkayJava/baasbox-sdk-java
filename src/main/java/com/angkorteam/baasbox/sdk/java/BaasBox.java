@@ -79,6 +79,7 @@ public class BaasBox {
             try {
                 ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
                 response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
                 return response;
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -108,6 +109,7 @@ public class BaasBox {
             try {
                 ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
                 response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
                 return response;
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -130,6 +132,7 @@ public class BaasBox {
             try {
                 ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
                 response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
                 return response;
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -151,6 +154,7 @@ public class BaasBox {
             try {
                 ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
                 response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
                 return response;
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -175,6 +179,7 @@ public class BaasBox {
             try {
                 ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
                 response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
                 return response;
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -200,6 +205,7 @@ public class BaasBox {
             try {
                 ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
                 response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
                 return response;
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -225,6 +231,7 @@ public class BaasBox {
             try {
                 ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
                 response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
                 return response;
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -246,6 +253,7 @@ public class BaasBox {
             try {
                 ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
                 response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
                 return response;
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -281,6 +289,7 @@ public class BaasBox {
             try {
                 ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
                 response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
                 return response;
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -303,6 +312,7 @@ public class BaasBox {
             try {
                 ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
                 response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
                 return response;
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -324,6 +334,7 @@ public class BaasBox {
             try {
                 ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
                 response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
                 return response;
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -349,6 +360,7 @@ public class BaasBox {
             try {
                 ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
                 response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
                 return response;
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -373,6 +385,7 @@ public class BaasBox {
             try {
                 ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
                 response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
                 return response;
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -398,6 +411,7 @@ public class BaasBox {
             try {
                 ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
                 response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
                 return response;
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -421,6 +435,7 @@ public class BaasBox {
             try {
                 ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
                 response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
                 return response;
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -447,6 +462,7 @@ public class BaasBox {
             try {
                 ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
                 response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
                 return response;
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -473,6 +489,7 @@ public class BaasBox {
             try {
                 ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
                 response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
                 return response;
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -496,6 +513,7 @@ public class BaasBox {
             try {
                 ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
                 response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
                 return response;
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -512,6 +530,7 @@ public class BaasBox {
             try {
                 ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
                 response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
                 return response;
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -528,6 +547,7 @@ public class BaasBox {
             try {
                 ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
                 response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
                 return response;
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -544,6 +564,7 @@ public class BaasBox {
             try {
                 ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
                 response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
                 return response;
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -560,6 +581,7 @@ public class BaasBox {
             try {
                 ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
                 response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
                 return response;
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -576,6 +598,7 @@ public class BaasBox {
             try {
                 ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
                 response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
                 return response;
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -592,6 +615,7 @@ public class BaasBox {
             try {
                 ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
                 response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
                 return response;
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -630,6 +654,7 @@ public class BaasBox {
             try {
                 ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
                 response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
                 return response;
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -646,6 +671,7 @@ public class BaasBox {
             try {
                 ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
                 response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
                 return response;
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -662,6 +688,7 @@ public class BaasBox {
             try {
                 ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
                 response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
                 return response;
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -678,6 +705,7 @@ public class BaasBox {
             try {
                 ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
                 response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
                 return response;
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -694,6 +722,7 @@ public class BaasBox {
             try {
                 ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
                 response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
                 return response;
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -710,6 +739,7 @@ public class BaasBox {
             try {
                 ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
                 response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
                 return response;
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -726,6 +756,7 @@ public class BaasBox {
             try {
                 ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
                 response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
                 return response;
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -742,6 +773,7 @@ public class BaasBox {
             try {
                 ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
                 response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
                 return response;
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -758,6 +790,7 @@ public class BaasBox {
             try {
                 ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
                 response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
                 return response;
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -774,6 +807,7 @@ public class BaasBox {
             try {
                 ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
                 response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
                 return response;
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -790,6 +824,7 @@ public class BaasBox {
             try {
                 ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
                 response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
                 return response;
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -806,6 +841,7 @@ public class BaasBox {
             try {
                 ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
                 response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
                 return response;
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -813,7 +849,7 @@ public class BaasBox {
         }
     }
 
-    public Response revokePermissionsDocumentUsername(UsernamePermissionsDocumentRequest request) {
+    public Response revokePermissionsDocument(UsernamePermissionsDocumentRequest request) {
         try {
             SuccessResponse response = this.client.revokePermissionsDocumentUsername(session, request.getCollection(), request.getId(), request.getAction(), request.getUsername());
             return response;
@@ -822,6 +858,7 @@ public class BaasBox {
             try {
                 ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
                 response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
                 return response;
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -829,7 +866,7 @@ public class BaasBox {
         }
     }
 
-    public Response revokePermissionsDocumentUsername(RoleNamePermissionsDocumentRequest request) {
+    public Response revokePermissionsDocument(RoleNamePermissionsDocumentRequest request) {
         try {
             SuccessResponse response = this.client.revokePermissionsDocumentRoleName(session, request.getCollection(), request.getId(), request.getAction(), request.getRolename());
             return response;
@@ -838,6 +875,7 @@ public class BaasBox {
             try {
                 ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
                 response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
                 return response;
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -860,6 +898,7 @@ public class BaasBox {
             try {
                 ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
                 response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
                 return response;
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -877,6 +916,7 @@ public class BaasBox {
             try {
                 ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
                 response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
                 return response;
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -893,6 +933,7 @@ public class BaasBox {
             try {
                 ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
                 response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
                 return response;
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -918,6 +959,7 @@ public class BaasBox {
             try {
                 ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
                 response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
                 return response;
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -934,6 +976,7 @@ public class BaasBox {
             try {
                 ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
                 response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
                 return response;
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -966,6 +1009,7 @@ public class BaasBox {
             try {
                 ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
                 response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
                 return response;
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -982,6 +1026,7 @@ public class BaasBox {
             try {
                 ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
                 response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
                 return response;
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -998,10 +1043,289 @@ public class BaasBox {
             try {
                 ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
                 response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
                 return response;
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         }
     }
+
+    public Response grantFileAccess(UsernameFileAccessRequest request) {
+        try {
+            SuccessResponse response = this.client.grantFileAccessUsername(session, request.getId(), request.getAction(), request.getUsername(), "mock");
+            return response;
+        } catch (RetrofitError error) {
+            System.out.println(error.getMessage());
+            try {
+                ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
+                response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
+                return response;
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    public Response grantFileAccess(RoleNameFileAccessRequest request) {
+        try {
+            SuccessResponse response = this.client.grantFileAccessRoleName(session, request.getId(), request.getAction(), request.getRolename(), "mock");
+            return response;
+        } catch (RetrofitError error) {
+            System.out.println(error.getMessage());
+            try {
+                ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
+                response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
+                return response;
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    public Response revokeFileAccess(UsernameFileAccessRequest request) {
+        try {
+            SuccessResponse response = this.client.revokeFileAccessUsername(session, request.getId(), request.getAction(), request.getUsername());
+            return response;
+        } catch (RetrofitError error) {
+            System.out.println(error.getMessage());
+            try {
+                ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
+                response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
+                return response;
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    public Response revokeFileAccess(RoleNameFileAccessRequest request) {
+        try {
+            SuccessResponse response = this.client.revokeFileAccessRoleName(session, request.getId(), request.getAction(), request.getRolename());
+            return response;
+        } catch (RetrofitError error) {
+            System.out.println(error.getMessage());
+            try {
+                ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
+                response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
+                return response;
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    public Response createAsset(String name, Map<String, Object> meta, File file) {
+        try {
+            String mineType = URLConnection.guessContentTypeFromName(file.getAbsolutePath());
+            String jsonMeta = null;
+            if (meta != null && !meta.isEmpty()) {
+                jsonMeta = gson.toJson(meta);
+            }
+            SuccessResponse response = this.client.createAsset(session, name, jsonMeta, new TypedFile(mineType, file));
+            return response;
+        } catch (RetrofitError error) {
+            System.out.println(error.getMessage());
+            try {
+                ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
+                response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
+                return response;
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    public Response retrieveAsset(String name) {
+        try {
+            retrofit.client.Response resp = this.client.retrieveAsset(appCode, name);
+            SuccessResponse response = new SuccessResponse();
+            response.setData(new LinkedHashMap<String, Object>());
+            long length = resp.getBody().length();
+            response.getData().put("length", length);
+            response.getData().put("mimeType", resp.getBody().mimeType());
+            try {
+                byte[] content = IOUtils.toByteArray(resp.getBody().in());
+                response.getData().put("content", content);
+                if (length == -1) {
+                    response.getData().put("length", content.length);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            response.setHttpCode(resp.getStatus());
+            response.setResult(resp.getReason());
+            return response;
+        } catch (RetrofitError error) {
+            System.out.println(error.getMessage());
+            try {
+                ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
+                response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
+                return response;
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    public Response deleteAsset(String name) {
+        try {
+            SuccessResponse response = this.client.deleteAsset(session, name);
+            return response;
+        } catch (RetrofitError error) {
+            System.out.println(error.getMessage());
+            try {
+                ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
+                response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
+                return response;
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    public Response fetchAsset() {
+        try {
+            SuccessResponse response = this.client.fetchAsset(session);
+            return response;
+        } catch (RetrofitError error) {
+            System.out.println(error.getMessage());
+            try {
+                ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
+                response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
+                return response;
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    public Response fetchCurrentSetting() {
+        try {
+            SuccessResponse response = this.client.fetchCurrentSetting(appCode, session);
+            return response;
+        } catch (RetrofitError error) {
+            System.out.println(error.getMessage());
+            try {
+                ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
+                response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
+                return response;
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    public Response fetchSectionSetting(String section) {
+        try {
+            SuccessResponse response = this.client.fetchSectionSetting(appCode, session, section);
+            return response;
+        } catch (RetrofitError error) {
+            System.out.println(error.getMessage());
+            try {
+                ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
+                response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
+                return response;
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    public Response updateValueSetting(String section, String key, String value) {
+        try {
+            SuccessResponse response = this.client.updateValueSetting(appCode, session, section, key, value, "mock");
+            return response;
+        } catch (RetrofitError error) {
+            System.out.println(error.getMessage());
+            try {
+                ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
+                response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
+                return response;
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    public Response listGroup() {
+        try {
+            SuccessResponse response = this.client.listGroup(appCode, session);
+            return response;
+        } catch (RetrofitError error) {
+            System.out.println(error.getMessage());
+            try {
+                ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
+                response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
+                return response;
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    public Response readSpecificGroup(String name) {
+        try {
+            SuccessResponse response = this.client.readSpecificGroup(appCode, session, name);
+            return response;
+        } catch (RetrofitError error) {
+            System.out.println(error.getMessage());
+            try {
+                ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
+                response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
+                return response;
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    public Response enableEndpointGroup(String name) {
+        try {
+            SuccessResponse response = this.client.enableEndpointGroup(appCode, session, name, "mock");
+            return response;
+        } catch (RetrofitError error) {
+            System.out.println(error.getMessage());
+            try {
+                ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
+                response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
+                return response;
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    public Response disableEndpointGroup(String name) {
+        try {
+            SuccessResponse response = this.client.disableEndpointGroup(appCode, session, name);
+            return response;
+        } catch (RetrofitError error) {
+            System.out.println(error.getMessage());
+            try {
+                ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
+                response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
+                return response;
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+
 }
