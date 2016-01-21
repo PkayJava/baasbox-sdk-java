@@ -43,12 +43,8 @@ public class Test {
 //            Response response = baasBox.countDocument("test11");
         }
         {
-            Filter filter = new Filter();
-            filter.setFields("hello, firstName, test");
-            filter.setGroupBy("hello");
-            filter.setWhere("hello like 'world%'");
-            Response response = baasBox.retrieveDocumentByQuery("test11", filter);
-            System.out.println(gson.toJson(response));
+            baasBox.suspendUser("socheat.khauv");
+            baasBox.activateUser("socheat.khauv");
         }
         {
 //            Map<String, Object> document = new LinkedHashMap<>();

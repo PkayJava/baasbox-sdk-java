@@ -1,5 +1,6 @@
 package com.angkorteam.baasbox.sdk.java;
 
+import com.angkorteam.baasbox.sdk.java.enums.SectionEnum;
 import com.angkorteam.baasbox.sdk.java.json.*;
 import com.angkorteam.baasbox.sdk.java.request.*;
 import com.angkorteam.baasbox.sdk.java.response.*;
@@ -1379,12 +1380,9 @@ public class BaasBox {
         }
     }
 
-    public Response fetchSectionSetting(String section) {
-        if (session != null && (!"PasswordRecovery".equals(session) || !"Application".equals(section) || !"Push".equals(section) || !"Image".equals(section))) {
-            throw new RuntimeException(section + " is not available");
-        }
+    public Response fetchSectionSetting(SectionEnum section) {
         try {
-            SuccessResponse response = this.client.fetchSectionSetting(appCode, session, section);
+            SuccessResponse response = this.client.fetchSectionSetting(appCode, session, section.getLiteral());
             return response;
         } catch (RetrofitError error) {
             System.out.println(error.getMessage());
