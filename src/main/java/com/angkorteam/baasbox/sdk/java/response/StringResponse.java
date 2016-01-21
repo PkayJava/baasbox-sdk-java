@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
 /**
  * Created by socheatkhauv on 1/14/16.
  */
-public class LogoutResponse extends Response {
+public class StringResponse extends Response {
 
     @Expose
     @SerializedName("data")

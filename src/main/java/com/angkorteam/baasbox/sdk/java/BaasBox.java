@@ -2,7 +2,7 @@ package com.angkorteam.baasbox.sdk.java;
 
 import com.angkorteam.baasbox.sdk.java.json.*;
 import com.angkorteam.baasbox.sdk.java.request.*;
-import com.angkorteam.baasbox.sdk.java.response.LogoutResponse;
+import com.angkorteam.baasbox.sdk.java.response.StringResponse;
 import com.angkorteam.baasbox.sdk.java.response.SuccessResponse;
 import com.angkorteam.baasbox.sdk.java.response.ErrorResponse;
 import com.angkorteam.baasbox.sdk.java.response.Response;
@@ -125,7 +125,7 @@ public class BaasBox {
      */
     public Response logout(String pushToken) {
         try {
-            LogoutResponse response = this.client.logout(appCode, session, pushToken);
+            StringResponse response = this.client.logout(appCode, session, pushToken);
             return response;
         } catch (RetrofitError error) {
             System.out.println(error.getMessage());
@@ -147,7 +147,7 @@ public class BaasBox {
      */
     public Response logout() {
         try {
-            LogoutResponse response = this.client.logout(appCode, session);
+            StringResponse response = this.client.logout(appCode, session);
             return response;
         } catch (RetrofitError error) {
             System.out.println(error.getMessage());
@@ -353,7 +353,7 @@ public class BaasBox {
             ChangePasswordJson json = new ChangePasswordJson();
             json.setNewPassword(request.getNewPassword());
             json.setOldPassword(request.getOldPassword());
-            SuccessResponse response = this.client.changePassword(session, json);
+            StringResponse response = this.client.changePassword(session, json);
             return response;
         } catch (RetrofitError error) {
             System.out.println(error.getMessage());
@@ -378,7 +378,7 @@ public class BaasBox {
         try {
             ChangeUsernameJson json = new ChangeUsernameJson();
             json.setUsername(request.getUsername());
-            SuccessResponse response = this.client.changeUsername(session, json);
+            StringResponse response = this.client.changeUsername(session, json);
             return response;
         } catch (RetrofitError error) {
             System.out.println(error.getMessage());
@@ -540,7 +540,7 @@ public class BaasBox {
 
     public Response unfollowUser(String username) {
         try {
-            SuccessResponse response = this.client.unfollowUser(session, username);
+            StringResponse response = this.client.unfollowUser(session, username);
             return response;
         } catch (RetrofitError error) {
             System.out.println(error.getMessage());
@@ -591,7 +591,7 @@ public class BaasBox {
 
     public Response enablePushNotification(String os, String token) {
         try {
-            SuccessResponse response = this.client.enablePushNotification(session, os, token, "mock");
+            StringResponse response = this.client.enablePushNotification(session, os, token, "mock");
             return response;
         } catch (RetrofitError error) {
             System.out.println(error.getMessage());
@@ -608,7 +608,7 @@ public class BaasBox {
 
     public Response disablePushNotification(String token) {
         try {
-            SuccessResponse response = this.client.disablePushNotification(session, token, "mock");
+            StringResponse response = this.client.disablePushNotification(session, token, "mock");
             return response;
         } catch (RetrofitError error) {
             System.out.println(error.getMessage());
@@ -647,7 +647,7 @@ public class BaasBox {
             if (request.getCustom() != null && !request.getCustom().isEmpty()) {
                 json.setCustom(request.getCustom());
             }
-            SuccessResponse response = this.client.sendPushNotification(session, json);
+            StringResponse response = this.client.sendPushNotification(session, json);
             return response;
         } catch (RetrofitError error) {
             System.out.println(error.getMessage());
@@ -664,7 +664,7 @@ public class BaasBox {
 
     public Response createNewCollection(String collection) {
         try {
-            SuccessResponse response = this.client.createNewCollection(session, collection, "mock");
+            StringResponse response = this.client.createNewCollection(session, collection, "mock");
             return response;
         } catch (RetrofitError error) {
             System.out.println(error.getMessage());
@@ -681,7 +681,7 @@ public class BaasBox {
 
     public Response deleteCollection(String collection) {
         try {
-            SuccessResponse response = this.client.deleteCollection(session, collection);
+            StringResponse response = this.client.deleteCollection(session, collection);
             return response;
         } catch (RetrofitError error) {
             System.out.println(error.getMessage());
@@ -800,7 +800,7 @@ public class BaasBox {
 
     public Response deleteDocument(String collection, String id) {
         try {
-            SuccessResponse response = this.client.deleteDocument(session, collection, id);
+            StringResponse response = this.client.deleteDocument(session, collection, id);
             return response;
         } catch (RetrofitError error) {
             System.out.println(error.getMessage());
@@ -817,7 +817,7 @@ public class BaasBox {
 
     public Response grantPermissionsDocument(UsernamePermissionsDocumentRequest request) {
         try {
-            SuccessResponse response = this.client.grantPermissionsDocumentUsername(session, request.getCollection(), request.getId(), request.getAction(), request.getUsername(), "mock");
+            StringResponse response = this.client.grantPermissionsDocumentUsername(session, request.getCollection(), request.getId(), request.getAction(), request.getUsername(), "mock");
             return response;
         } catch (RetrofitError error) {
             System.out.println(error.getMessage());
@@ -834,7 +834,7 @@ public class BaasBox {
 
     public Response grantPermissionsDocument(RoleNamePermissionsDocumentRequest request) {
         try {
-            SuccessResponse response = this.client.grantPermissionsDocumentRoleName(session, request.getCollection(), request.getId(), request.getAction(), request.getRolename(), "mock");
+            StringResponse response = this.client.grantPermissionsDocumentRoleName(session, request.getCollection(), request.getId(), request.getAction(), request.getRolename(), "mock");
             return response;
         } catch (RetrofitError error) {
             System.out.println(error.getMessage());
@@ -851,7 +851,7 @@ public class BaasBox {
 
     public Response revokePermissionsDocument(UsernamePermissionsDocumentRequest request) {
         try {
-            SuccessResponse response = this.client.revokePermissionsDocumentUsername(session, request.getCollection(), request.getId(), request.getAction(), request.getUsername());
+            StringResponse response = this.client.revokePermissionsDocumentUsername(session, request.getCollection(), request.getId(), request.getAction(), request.getUsername());
             return response;
         } catch (RetrofitError error) {
             System.out.println(error.getMessage());
@@ -868,7 +868,7 @@ public class BaasBox {
 
     public Response revokePermissionsDocument(RoleNamePermissionsDocumentRequest request) {
         try {
-            SuccessResponse response = this.client.revokePermissionsDocumentRoleName(session, request.getCollection(), request.getId(), request.getAction(), request.getRolename());
+            StringResponse response = this.client.revokePermissionsDocumentRoleName(session, request.getCollection(), request.getId(), request.getAction(), request.getRolename());
             return response;
         } catch (RetrofitError error) {
             System.out.println(error.getMessage());
@@ -941,6 +941,23 @@ public class BaasBox {
         }
     }
 
+    public Response deleteLink(String id) {
+        try {
+            StringResponse response = this.client.deleteLink(appCode, session, id);
+            return response;
+        } catch (RetrofitError error) {
+            System.out.println(error.getMessage());
+            try {
+                ErrorResponse response = gson.fromJson(IOUtils.toString(error.getResponse().getBody().in()), ErrorResponse.class);
+                response.setHttpCode(error.getResponse().getStatus());
+                response.setResult(error.getResponse().getReason());
+                return response;
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
     public Response uploadFile(File file, Map<String, Object> attachedData, Map<String, Object> acl) {
         try {
             String mineType = URLConnection.guessContentTypeFromName(file.getAbsolutePath());
@@ -969,7 +986,7 @@ public class BaasBox {
 
     public Response deleteFile(String id) {
         try {
-            SuccessResponse response = this.client.deleteFile(session, id);
+            StringResponse response = this.client.deleteFile(session, id);
             return response;
         } catch (RetrofitError error) {
             System.out.println(error.getMessage());
@@ -1053,7 +1070,7 @@ public class BaasBox {
 
     public Response grantFileAccess(UsernameFileAccessRequest request) {
         try {
-            SuccessResponse response = this.client.grantFileAccessUsername(session, request.getId(), request.getAction(), request.getUsername(), "mock");
+            StringResponse response = this.client.grantFileAccessUsername(session, request.getId(), request.getAction(), request.getUsername(), "mock");
             return response;
         } catch (RetrofitError error) {
             System.out.println(error.getMessage());
@@ -1070,7 +1087,7 @@ public class BaasBox {
 
     public Response grantFileAccess(RoleNameFileAccessRequest request) {
         try {
-            SuccessResponse response = this.client.grantFileAccessRoleName(session, request.getId(), request.getAction(), request.getRolename(), "mock");
+            StringResponse response = this.client.grantFileAccessRoleName(session, request.getId(), request.getAction(), request.getRolename(), "mock");
             return response;
         } catch (RetrofitError error) {
             System.out.println(error.getMessage());
@@ -1087,7 +1104,7 @@ public class BaasBox {
 
     public Response revokeFileAccess(UsernameFileAccessRequest request) {
         try {
-            SuccessResponse response = this.client.revokeFileAccessUsername(session, request.getId(), request.getAction(), request.getUsername());
+            StringResponse response = this.client.revokeFileAccessUsername(session, request.getId(), request.getAction(), request.getUsername());
             return response;
         } catch (RetrofitError error) {
             System.out.println(error.getMessage());
@@ -1104,7 +1121,7 @@ public class BaasBox {
 
     public Response revokeFileAccess(RoleNameFileAccessRequest request) {
         try {
-            SuccessResponse response = this.client.revokeFileAccessRoleName(session, request.getId(), request.getAction(), request.getRolename());
+            StringResponse response = this.client.revokeFileAccessRoleName(session, request.getId(), request.getAction(), request.getRolename());
             return response;
         } catch (RetrofitError error) {
             System.out.println(error.getMessage());
@@ -1176,7 +1193,7 @@ public class BaasBox {
 
     public Response deleteAsset(String name) {
         try {
-            SuccessResponse response = this.client.deleteAsset(session, name);
+            StringResponse response = this.client.deleteAsset(session, name);
             return response;
         } catch (RetrofitError error) {
             System.out.println(error.getMessage());
@@ -1244,7 +1261,7 @@ public class BaasBox {
 
     public Response updateValueSetting(String section, String key, String value) {
         try {
-            SuccessResponse response = this.client.updateValueSetting(appCode, session, section, key, value, "mock");
+            StringResponse response = this.client.updateValueSetting(appCode, session, section, key, value, "mock");
             return response;
         } catch (RetrofitError error) {
             System.out.println(error.getMessage());
@@ -1295,7 +1312,7 @@ public class BaasBox {
 
     public Response enableEndpointGroup(String name) {
         try {
-            SuccessResponse response = this.client.enableEndpointGroup(appCode, session, name, "mock");
+            StringResponse response = this.client.enableEndpointGroup(appCode, session, name, "mock");
             return response;
         } catch (RetrofitError error) {
             System.out.println(error.getMessage());
@@ -1312,7 +1329,7 @@ public class BaasBox {
 
     public Response disableEndpointGroup(String name) {
         try {
-            SuccessResponse response = this.client.disableEndpointGroup(appCode, session, name);
+            StringResponse response = this.client.disableEndpointGroup(appCode, session, name);
             return response;
         } catch (RetrofitError error) {
             System.out.println(error.getMessage());

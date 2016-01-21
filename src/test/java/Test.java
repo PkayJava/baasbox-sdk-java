@@ -22,8 +22,8 @@ public class Test {
         BaasBox baasBox = new BaasBox(IP_A, "1234567890");
         {
             LoginRequest request = new LoginRequest();
-            request.setUsername("socheat.khauv");
-            request.setPassword("123123a");
+            request.setUsername("admin");
+            request.setPassword("admin");
             Response response = baasBox.login(request);
 //            System.out.println(gson.toJson(response));
         }
@@ -33,13 +33,9 @@ public class Test {
         }
 //        File file = new File("/home/socheat/Documents/git/Red5/red5-server/changelog.txt");
 //        baasBox.uploadFile(file, new HashMap<>(), new HashMap<>());
-        Response response = baasBox.retrieveAsset("test1");
+        Response response = baasBox.createNewCollection("test11");
+        baasBox.deleteCollection("test11");
 
-        System.out.println("tesf");
-        {
-//            SignupRequest request = new SignupRequest();
-//            request.setUsername("socheat.khauv");
-//            request.setPassword("1234567890");
-        }
+        System.out.println(gson.toJson(response));
     }
 }
