@@ -322,9 +322,37 @@ public class BaasBox {
      *
      * @return
      */
-    public Response fetchUsers() {
+    public Response fetchUsers(Filter filter) {
         try {
-            SuccessResponse response = this.client.fetchUsers(session);
+            Map<String, String> query = new LinkedHashMap<String, String>();
+            if (filter.getWhere() != null && !"".equals(filter.getWhere())) {
+                query.put("where", filter.getWhere());
+            }
+            if (filter.getFields() != null && !"".equals(filter.getFields())) {
+                query.put("fields", filter.getFields());
+            }
+            if (filter.isCount()) {
+                query.put("count", "true");
+            }
+            if (filter.getGroupBy() != null && !"".equals(filter.getGroupBy())) {
+                query.put("groupBy", filter.getGroupBy());
+            }
+            if (filter.getPage() != null) {
+                query.put("page", String.valueOf(filter.getPage()));
+            }
+            if (filter.getOrderBy() != null && !"".equals(filter.getOrderBy())) {
+                query.put("orderBy", filter.getOrderBy());
+            }
+            if (filter.getParams() != null && !"".equals(filter.getParams())) {
+                query.put("params", filter.getParams());
+            }
+            if (filter.getRecordsPerPage() != null) {
+                query.put("recordsPerPage", String.valueOf(filter.getRecordsPerPage()));
+            }
+            if (filter.getSkip() != null) {
+                query.put("skip", String.valueOf(filter.getSkip()));
+            }
+            SuccessResponse response = this.client.fetchUsers(session, query);
             return response;
         } catch (RetrofitError error) {
             System.out.println(error.getMessage());
@@ -727,9 +755,37 @@ public class BaasBox {
         }
     }
 
-    public Response retrieveDocumentByQuery(String collection) {
+    public Response retrieveDocumentByQuery(String collection, Filter filter) {
         try {
-            ArrayResponse response = this.client.retrieveDocumentByQuery(session, collection);
+            Map<String, String> query = new LinkedHashMap<String, String>();
+            if (filter.getWhere() != null && !"".equals(filter.getWhere())) {
+                query.put("where", filter.getWhere());
+            }
+            if (filter.getFields() != null && !"".equals(filter.getFields())) {
+                query.put("fields", filter.getFields());
+            }
+            if (filter.isCount()) {
+                query.put("count", "true");
+            }
+            if (filter.getGroupBy() != null && !"".equals(filter.getGroupBy())) {
+                query.put("groupBy", filter.getGroupBy());
+            }
+            if (filter.getPage() != null) {
+                query.put("page", String.valueOf(filter.getPage()));
+            }
+            if (filter.getOrderBy() != null && !"".equals(filter.getOrderBy())) {
+                query.put("orderBy", filter.getOrderBy());
+            }
+            if (filter.getParams() != null && !"".equals(filter.getParams())) {
+                query.put("params", filter.getParams());
+            }
+            if (filter.getRecordsPerPage() != null) {
+                query.put("recordsPerPage", String.valueOf(filter.getRecordsPerPage()));
+            }
+            if (filter.getSkip() != null) {
+                query.put("skip", String.valueOf(filter.getSkip()));
+            }
+            ArrayResponse response = this.client.retrieveDocumentByQuery(session, collection, query);
             return response;
         } catch (RetrofitError error) {
             System.out.println(error.getMessage());
@@ -921,9 +977,37 @@ public class BaasBox {
         }
     }
 
-    public Response retrieveLink() {
+    public Response retrieveLink(Filter filter) {
         try {
-            SuccessResponse response = this.client.retrieveLink(appCode, session);
+            Map<String, String> query = new LinkedHashMap<String, String>();
+            if (filter.getWhere() != null && !"".equals(filter.getWhere())) {
+                query.put("where", filter.getWhere());
+            }
+            if (filter.getFields() != null && !"".equals(filter.getFields())) {
+                query.put("fields", filter.getFields());
+            }
+            if (filter.isCount()) {
+                query.put("count", "true");
+            }
+            if (filter.getGroupBy() != null && !"".equals(filter.getGroupBy())) {
+                query.put("groupBy", filter.getGroupBy());
+            }
+            if (filter.getPage() != null) {
+                query.put("page", String.valueOf(filter.getPage()));
+            }
+            if (filter.getOrderBy() != null && !"".equals(filter.getOrderBy())) {
+                query.put("orderBy", filter.getOrderBy());
+            }
+            if (filter.getParams() != null && !"".equals(filter.getParams())) {
+                query.put("params", filter.getParams());
+            }
+            if (filter.getRecordsPerPage() != null) {
+                query.put("recordsPerPage", String.valueOf(filter.getRecordsPerPage()));
+            }
+            if (filter.getSkip() != null) {
+                query.put("skip", String.valueOf(filter.getSkip()));
+            }
+            SuccessResponse response = this.client.retrieveLink(appCode, session, query);
             return response;
         } catch (RetrofitError error) {
             System.out.println(error.getMessage());
@@ -1048,9 +1132,37 @@ public class BaasBox {
         }
     }
 
-    public Response retrieveFilesDetail() {
+    public Response retrieveFilesDetail(Filter filter) {
         try {
-            SuccessResponse response = this.client.retrieveFilesDetail(session);
+            Map<String, String> query = new LinkedHashMap<String, String>();
+            if (filter.getWhere() != null && !"".equals(filter.getWhere())) {
+                query.put("where", filter.getWhere());
+            }
+            if (filter.getFields() != null && !"".equals(filter.getFields())) {
+                query.put("fields", filter.getFields());
+            }
+            if (filter.isCount()) {
+                query.put("count", "true");
+            }
+            if (filter.getGroupBy() != null && !"".equals(filter.getGroupBy())) {
+                query.put("groupBy", filter.getGroupBy());
+            }
+            if (filter.getPage() != null) {
+                query.put("page", String.valueOf(filter.getPage()));
+            }
+            if (filter.getOrderBy() != null && !"".equals(filter.getOrderBy())) {
+                query.put("orderBy", filter.getOrderBy());
+            }
+            if (filter.getParams() != null && !"".equals(filter.getParams())) {
+                query.put("params", filter.getParams());
+            }
+            if (filter.getRecordsPerPage() != null) {
+                query.put("recordsPerPage", String.valueOf(filter.getRecordsPerPage()));
+            }
+            if (filter.getSkip() != null) {
+                query.put("skip", String.valueOf(filter.getSkip()));
+            }
+            SuccessResponse response = this.client.retrieveFilesDetail(session, query);
             return response;
         } catch (RetrofitError error) {
             System.out.println(error.getMessage());
@@ -1205,9 +1317,37 @@ public class BaasBox {
         }
     }
 
-    public Response fetchAsset() {
+    public Response fetchAsset(Filter filter) {
         try {
-            SuccessResponse response = this.client.fetchAsset(session);
+            Map<String, String> query = new LinkedHashMap<String, String>();
+            if (filter.getWhere() != null && !"".equals(filter.getWhere())) {
+                query.put("where", filter.getWhere());
+            }
+            if (filter.getFields() != null && !"".equals(filter.getFields())) {
+                query.put("fields", filter.getFields());
+            }
+            if (filter.isCount()) {
+                query.put("count", "true");
+            }
+            if (filter.getGroupBy() != null && !"".equals(filter.getGroupBy())) {
+                query.put("groupBy", filter.getGroupBy());
+            }
+            if (filter.getPage() != null) {
+                query.put("page", String.valueOf(filter.getPage()));
+            }
+            if (filter.getOrderBy() != null && !"".equals(filter.getOrderBy())) {
+                query.put("orderBy", filter.getOrderBy());
+            }
+            if (filter.getParams() != null && !"".equals(filter.getParams())) {
+                query.put("params", filter.getParams());
+            }
+            if (filter.getRecordsPerPage() != null) {
+                query.put("recordsPerPage", String.valueOf(filter.getRecordsPerPage()));
+            }
+            if (filter.getSkip() != null) {
+                query.put("skip", String.valueOf(filter.getSkip()));
+            }
+            SuccessResponse response = this.client.fetchAsset(session, query);
             return response;
         } catch (RetrofitError error) {
             System.out.println(error.getMessage());
@@ -1240,6 +1380,9 @@ public class BaasBox {
     }
 
     public Response fetchSectionSetting(String section) {
+        if (session != null && (!"PasswordRecovery".equals(session) || !"Application".equals(section) || !"Push".equals(section) || !"Image".equals(section))) {
+            throw new RuntimeException(section + " is not available");
+        }
         try {
             SuccessResponse response = this.client.fetchSectionSetting(appCode, session, section);
             return response;

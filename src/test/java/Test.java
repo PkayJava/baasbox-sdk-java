@@ -1,4 +1,5 @@
 import com.angkorteam.baasbox.sdk.java.BaasBox;
+import com.angkorteam.baasbox.sdk.java.Filter;
 import com.angkorteam.baasbox.sdk.java.request.LoginRequest;
 import com.angkorteam.baasbox.sdk.java.response.Response;
 import com.angkorteam.baasbox.sdk.java.response.SuccessResponse;
@@ -36,13 +37,17 @@ public class Test {
 //        File file = new File("/home/socheat/Documents/git/Red5/red5-server/changelog.txt");
 //        baasBox.uploadFile(file, new HashMap<>(), new HashMap<>());
         {
-            Response response = baasBox.createCollection("test11");
+//            Response response = baasBox.createCollection("test11");
         }
         {
-            Response response = baasBox.countDocument("test11");
+//            Response response = baasBox.countDocument("test11");
         }
         {
-            Response response = baasBox.retrieveDocumentByQuery("test11");
+            Filter filter = new Filter();
+            filter.setFields("hello, firstName, test");
+            filter.setGroupBy("hello");
+            filter.setWhere("hello like 'world%'");
+            Response response = baasBox.retrieveDocumentByQuery("test11", filter);
             System.out.println(gson.toJson(response));
         }
         {

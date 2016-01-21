@@ -126,7 +126,7 @@ public interface Client {
      * @return
      */
     @GET("/users")
-    public SuccessResponse fetchUsers(@Header("X-BB-SESSION") String session);
+    public SuccessResponse fetchUsers(@Header("X-BB-SESSION") String session, @QueryMap Map<String, String> query);
 
     /**
      * User Management
@@ -216,7 +216,7 @@ public interface Client {
     public SuccessResponse retrieveDocumentById(@Header("X-BB-SESSION") String session, @Path("collection") String collection, @Path("id") String id);
 
     @GET("/document/{collection}")
-    public ArrayResponse retrieveDocumentByQuery(@Header("X-BB-SESSION") String session, @Path("collection") String collection);
+    public ArrayResponse retrieveDocumentByQuery(@Header("X-BB-SESSION") String session, @Path("collection") String collection, @QueryMap Map<String, String> query);
 
     @GET("/document/{collection}/count")
     public SuccessResponse countDocument(@Header("X-BB-SESSION") String session, @Path("collection") String collection);
@@ -252,7 +252,7 @@ public interface Client {
     public SuccessResponse retrieveLink(@Header("X-BAASBOX-APPCODE") String appCode, @Header("X-BB-SESSION") String session, @Path("id") String id);
 
     @GET("/link")
-    public SuccessResponse retrieveLink(@Header("X-BAASBOX-APPCODE") String appCode, @Header("X-BB-SESSION") String session);
+    public SuccessResponse retrieveLink(@Header("X-BAASBOX-APPCODE") String appCode, @Header("X-BB-SESSION") String session, @QueryMap Map<String, String> query);
 
     @DELETE("/link/{id}")
     public StringResponse deleteLink(@Header("X-BAASBOX-APPCODE") String appCode, @Header("X-BB-SESSION") String session, @Path("id") String id);
@@ -272,7 +272,7 @@ public interface Client {
     public SuccessResponse retrieveFileDetail(@Header("X-BB-SESSION") String session, @Path("id") String id);
 
     @GET("/file/details")
-    public SuccessResponse retrieveFilesDetail(@Header("X-BB-SESSION") String session);
+    public SuccessResponse retrieveFilesDetail(@Header("X-BB-SESSION") String session, @QueryMap Map<String, String> query);
 
     @PUT("/file/{id}/{action}/user/{username}")
     public StringResponse grantFileAccessUsername(@Header("X-BB-SESSION") String session, @Path("id") String id, @Path("action") String action, @Path("username") String username, @Body String mock);
@@ -298,7 +298,7 @@ public interface Client {
     public StringResponse deleteAsset(@Header("X-BB-SESSION") String session, @Path("name") String name);
 
     @GET("/admin/asset")
-    public SuccessResponse fetchAsset(@Header("X-BB-SESSION") String session);
+    public SuccessResponse fetchAsset(@Header("X-BB-SESSION") String session, @QueryMap Map<String, String> query);
 
     @GET("/admin/configuration/dump.json")
     public SuccessResponse fetchCurrentSetting(@Header("X-BAASBOX-APPCODE") String appCode, @Header("X-BB-SESSION") String session);
