@@ -871,7 +871,7 @@ public class BaasBox {
 
     public Response grantPermissionsDocument(UsernamePermissionsDocumentRequest request) {
         try {
-            StringResponse response = this.client.grantPermissionsDocumentUsername(session, request.getCollection(), request.getId(), request.getAction(), request.getUsername(), "mock");
+            StringResponse response = this.client.grantPermissionsDocumentUsername(session, request.getCollection(), request.getId(), request.getAction().getLiteral(), request.getUsername(), "mock");
             return response;
         } catch (RetrofitError error) {
             System.out.println(error.getMessage());
@@ -888,7 +888,7 @@ public class BaasBox {
 
     public Response grantPermissionsDocument(RoleNamePermissionsDocumentRequest request) {
         try {
-            StringResponse response = this.client.grantPermissionsDocumentRoleName(session, request.getCollection(), request.getId(), request.getAction(), request.getRolename(), "mock");
+            StringResponse response = this.client.grantPermissionsDocumentRoleName(session, request.getCollection(), request.getId(), request.getAction().getLiteral(), request.getRolename(), "mock");
             return response;
         } catch (RetrofitError error) {
             System.out.println(error.getMessage());
@@ -905,7 +905,7 @@ public class BaasBox {
 
     public Response revokePermissionsDocument(UsernamePermissionsDocumentRequest request) {
         try {
-            StringResponse response = this.client.revokePermissionsDocumentUsername(session, request.getCollection(), request.getId(), request.getAction(), request.getUsername());
+            StringResponse response = this.client.revokePermissionsDocumentUsername(session, request.getCollection(), request.getId(), request.getAction().getLiteral(), request.getUsername());
             return response;
         } catch (RetrofitError error) {
             System.out.println(error.getMessage());
@@ -922,7 +922,7 @@ public class BaasBox {
 
     public Response revokePermissionsDocument(RoleNamePermissionsDocumentRequest request) {
         try {
-            StringResponse response = this.client.revokePermissionsDocumentRoleName(session, request.getCollection(), request.getId(), request.getAction(), request.getRolename());
+            StringResponse response = this.client.revokePermissionsDocumentRoleName(session, request.getCollection(), request.getId(), request.getAction().getLiteral(), request.getRolename());
             return response;
         } catch (RetrofitError error) {
             System.out.println(error.getMessage());
@@ -1180,7 +1180,7 @@ public class BaasBox {
 
     public Response grantFileAccess(UsernameFileAccessRequest request) {
         try {
-            StringResponse response = this.client.grantFileAccessUsername(session, request.getId(), request.getAction(), request.getUsername(), "mock");
+            StringResponse response = this.client.grantFileAccessUsername(session, request.getId(), request.getAction().getLiteral(), request.getUsername(), "mock");
             return response;
         } catch (RetrofitError error) {
             System.out.println(error.getMessage());
@@ -1197,7 +1197,7 @@ public class BaasBox {
 
     public Response grantFileAccess(RoleNameFileAccessRequest request) {
         try {
-            StringResponse response = this.client.grantFileAccessRoleName(session, request.getId(), request.getAction(), request.getRolename(), "mock");
+            StringResponse response = this.client.grantFileAccessRoleName(session, request.getId(), request.getAction().getLiteral(), request.getRolename(), "mock");
             return response;
         } catch (RetrofitError error) {
             System.out.println(error.getMessage());
@@ -1214,7 +1214,7 @@ public class BaasBox {
 
     public Response revokeFileAccess(UsernameFileAccessRequest request) {
         try {
-            StringResponse response = this.client.revokeFileAccessUsername(session, request.getId(), request.getAction(), request.getUsername());
+            StringResponse response = this.client.revokeFileAccessUsername(session, request.getId(), request.getAction().getLiteral(), request.getUsername());
             return response;
         } catch (RetrofitError error) {
             System.out.println(error.getMessage());
@@ -1231,7 +1231,7 @@ public class BaasBox {
 
     public Response revokeFileAccess(RoleNameFileAccessRequest request) {
         try {
-            StringResponse response = this.client.revokeFileAccessRoleName(session, request.getId(), request.getAction(), request.getRolename());
+            StringResponse response = this.client.revokeFileAccessRoleName(session, request.getId(), request.getAction().getLiteral(), request.getRolename());
             return response;
         } catch (RetrofitError error) {
             System.out.println(error.getMessage());

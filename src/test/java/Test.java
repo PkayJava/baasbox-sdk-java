@@ -1,6 +1,9 @@
 import com.angkorteam.baasbox.sdk.java.BaasBox;
 import com.angkorteam.baasbox.sdk.java.Filter;
+import com.angkorteam.baasbox.sdk.java.enums.ActionEnum;
 import com.angkorteam.baasbox.sdk.java.request.LoginRequest;
+import com.angkorteam.baasbox.sdk.java.request.RoleNamePermissionsDocumentRequest;
+import com.angkorteam.baasbox.sdk.java.response.ArrayResponse;
 import com.angkorteam.baasbox.sdk.java.response.Response;
 import com.angkorteam.baasbox.sdk.java.response.SuccessResponse;
 import com.google.gson.Gson;
@@ -25,8 +28,12 @@ public class Test {
         BaasBox baasBox = new BaasBox(IP_A, "1234567890");
         {
             LoginRequest request = new LoginRequest();
-            request.setUsername("admin");
-            request.setPassword("admin");
+//            request.setUsername("admin");
+//            request.setPassword("admin");
+            request.setUsername("pkayjava@gmail.com");
+            request.setPassword("123123a");
+//            request.setUsername("socheat.khauv");
+//            request.setPassword("123123a");
             Response response = baasBox.login(request);
 //            System.out.println(gson.toJson(response));
         }
@@ -43,13 +50,22 @@ public class Test {
 //            Response response = baasBox.countDocument("test11");
         }
         {
-            baasBox.suspendUser("socheat.khauv");
-            baasBox.activateUser("socheat.khauv");
+
         }
         {
 //            Map<String, Object> document = new LinkedHashMap<>();
 //            document.put("hello", "world");
 //            baasBox.createDocument("test11", document);
+            ArrayResponse response = (ArrayResponse) baasBox.retrieveDocumentByQuery("test11", new Filter());
+            for (Map<String, Object> data : response.getData()) {
+                System.out.println(gson.toJson(data));
+//                RoleNamePermissionsDocumentRequest request = new RoleNamePermissionsDocumentRequest();
+//                request.setRolename("registered");
+//                request.setAction(ActionEnum.All);
+//                request.setCollection("test11");
+//                request.setId((String) data.get("id"));
+//                baasBox.grantPermissionsDocument(request);
+            }
         }
     }
 }

@@ -1,5 +1,7 @@
 package com.angkorteam.baasbox.sdk.java.request;
 
+import com.angkorteam.baasbox.sdk.java.enums.ActionEnum;
+
 import java.io.Serializable;
 
 /**
@@ -9,7 +11,7 @@ public class FileAccessRequest implements Serializable {
 
     private String id;
 
-    private String action;
+    private ActionEnum action;
 
     public String getId() {
         return id;
@@ -19,14 +21,11 @@ public class FileAccessRequest implements Serializable {
         this.id = id;
     }
 
-    public String getAction() {
+    public ActionEnum getAction() {
         return action;
     }
 
-    public void setAction(String action) {
-        if (action == null || !(action.equals("read") && action.equals("update") && action.equals("delete") && action.equals("all"))) {
-            throw new RuntimeException("all, read, update and delete are available in the moment");
-        }
+    public void setAction(ActionEnum action) {
         this.action = action;
     }
 }
