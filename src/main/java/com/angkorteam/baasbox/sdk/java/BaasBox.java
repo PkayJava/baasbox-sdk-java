@@ -2,10 +2,7 @@ package com.angkorteam.baasbox.sdk.java;
 
 import com.angkorteam.baasbox.sdk.java.json.*;
 import com.angkorteam.baasbox.sdk.java.request.*;
-import com.angkorteam.baasbox.sdk.java.response.StringResponse;
-import com.angkorteam.baasbox.sdk.java.response.SuccessResponse;
-import com.angkorteam.baasbox.sdk.java.response.ErrorResponse;
-import com.angkorteam.baasbox.sdk.java.response.Response;
+import com.angkorteam.baasbox.sdk.java.response.*;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.squareup.okhttp.OkHttpClient;
@@ -662,9 +659,9 @@ public class BaasBox {
         }
     }
 
-    public Response createNewCollection(String collection) {
+    public Response createCollection(String collection) {
         try {
-            StringResponse response = this.client.createNewCollection(session, collection, "mock");
+            StringResponse response = this.client.createCollection(session, collection, "mock");
             return response;
         } catch (RetrofitError error) {
             System.out.println(error.getMessage());
@@ -732,7 +729,7 @@ public class BaasBox {
 
     public Response retrieveDocumentByQuery(String collection) {
         try {
-            SuccessResponse response = this.client.retrieveDocumentByQuery(session, collection);
+            ArrayResponse response = this.client.retrieveDocumentByQuery(session, collection);
             return response;
         } catch (RetrofitError error) {
             System.out.println(error.getMessage());

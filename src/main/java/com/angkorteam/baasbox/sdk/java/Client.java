@@ -1,6 +1,7 @@
 package com.angkorteam.baasbox.sdk.java;
 
 import com.angkorteam.baasbox.sdk.java.json.*;
+import com.angkorteam.baasbox.sdk.java.response.ArrayResponse;
 import com.angkorteam.baasbox.sdk.java.response.StringResponse;
 import com.angkorteam.baasbox.sdk.java.response.SuccessResponse;
 import retrofit.client.Response;
@@ -203,7 +204,7 @@ public interface Client {
     public StringResponse sendPushNotification(@Header("X-BB-SESSION") String session, @Body SendPushNotificationJson json);
 
     @POST("/admin/collection/{collection}")
-    public StringResponse createNewCollection(@Header("X-BB-SESSION") String session, @Path("collection") String collection, @Body String mock);
+    public StringResponse createCollection(@Header("X-BB-SESSION") String session, @Path("collection") String collection, @Body String mock);
 
     @DELETE("/admin/collection/{collection}")
     public StringResponse deleteCollection(@Header("X-BB-SESSION") String session, @Path("collection") String collection);
@@ -215,7 +216,7 @@ public interface Client {
     public SuccessResponse retrieveDocumentById(@Header("X-BB-SESSION") String session, @Path("collection") String collection, @Path("id") String id);
 
     @GET("/document/{collection}")
-    public SuccessResponse retrieveDocumentByQuery(@Header("X-BB-SESSION") String session, @Path("collection") String collection);
+    public ArrayResponse retrieveDocumentByQuery(@Header("X-BB-SESSION") String session, @Path("collection") String collection);
 
     @GET("/document/{collection}/count")
     public SuccessResponse countDocument(@Header("X-BB-SESSION") String session, @Path("collection") String collection);

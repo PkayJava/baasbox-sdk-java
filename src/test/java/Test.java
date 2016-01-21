@@ -7,6 +7,8 @@ import com.google.gson.GsonBuilder;
 
 import java.io.File;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  * Created by socheatkhauv on 1/13/16.
@@ -33,9 +35,20 @@ public class Test {
         }
 //        File file = new File("/home/socheat/Documents/git/Red5/red5-server/changelog.txt");
 //        baasBox.uploadFile(file, new HashMap<>(), new HashMap<>());
-        Response response = baasBox.createNewCollection("test11");
-        baasBox.deleteCollection("test11");
-
-        System.out.println(gson.toJson(response));
+        {
+            Response response = baasBox.createCollection("test11");
+        }
+        {
+            Response response = baasBox.countDocument("test11");
+        }
+        {
+            Response response = baasBox.retrieveDocumentByQuery("test11");
+            System.out.println(gson.toJson(response));
+        }
+        {
+//            Map<String, Object> document = new LinkedHashMap<>();
+//            document.put("hello", "world");
+//            baasBox.createDocument("test11", document);
+        }
     }
 }
