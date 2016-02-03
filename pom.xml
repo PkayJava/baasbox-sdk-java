@@ -12,12 +12,7 @@
     <url>http://maven.apache.org</url>
 
     <properties>
-        <jetty9.version>9.2.13.v20150730</jetty9.version>
-        <log4j.version>2.4</log4j.version>
-        <junit.version>4.12</junit.version>
-        <wicket.version>7.1.0</wicket.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <tomcat.version>8.0.30</tomcat.version>
         <java.version>1.8</java.version>
         <maven-jar-plugin-version>2.5</maven-jar-plugin-version>
         <maven-antrun-plugin-version>1.7</maven-antrun-plugin-version>
@@ -25,15 +20,7 @@
         <maven-compiler-plugin-version>3.1</maven-compiler-plugin-version>
         <properties-maven-plugin-version>1.0-alpha-2</properties-maven-plugin-version>
         <exec-maven-plugin-version>1.4.0</exec-maven-plugin-version>
-        <jooq.version>3.7.2</jooq.version>
-        <mysql.version>5.1.38</mysql.version>
-        <flywaydb.version>3.2.1</flywaydb.version>
         <build-helper-maven-plugin-version>1.9.1</build-helper-maven-plugin-version>
-        <slf4j.version>1.7.12</slf4j.version>
-        <spring.version>4.2.4.RELEASE</spring.version>
-        <spring-security.version>4.0.3.RELEASE</spring-security.version>
-        <jackson.version>2.6.3</jackson.version>
-        <swagger.version>1.5.4</swagger.version>
     </properties>
 
     <dependencies>
