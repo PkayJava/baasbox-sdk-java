@@ -1,7 +1,8 @@
 package com.angkorteam.baasbox.sdk.java;
 
 import com.angkorteam.baasbox.sdk.java.json.*;
-import com.angkorteam.baasbox.sdk.java.response.LogoutResponse;
+import com.angkorteam.baasbox.sdk.java.response.ArrayResponse;
+import com.angkorteam.baasbox.sdk.java.response.StringResponse;
 import com.angkorteam.baasbox.sdk.java.response.SuccessResponse;
 import retrofit.client.Response;
 import retrofit.http.*;
@@ -41,7 +42,7 @@ public interface Client {
      * @return
      */
     @POST("/logout")
-    public LogoutResponse logout(@Header("X-BAASBOX-APPCODE") String appCode, @Header("X-BB-SESSION") String session);
+    public StringResponse logout(@Header("X-BAASBOX-APPCODE") String appCode, @Header("X-BB-SESSION") String session);
 
     /**
      * User Management
@@ -52,7 +53,7 @@ public interface Client {
      * @return
      */
     @POST("/logout/{pushToken}")
-    public LogoutResponse logout(@Header("X-BAASBOX-APPCODE") String appCode, @Header("X-BB-SESSION") String session, @Path("pushToken") String pushToken);
+    public StringResponse logout(@Header("X-BAASBOX-APPCODE") String appCode, @Header("X-BB-SESSION") String session, @Path("pushToken") String pushToken);
 
     /**
      * User Management
@@ -125,7 +126,7 @@ public interface Client {
      * @return
      */
     @GET("/users")
-    public SuccessResponse fetchUsers(@Header("X-BB-SESSION") String session);
+    public SuccessResponse fetchUsers(@Header("X-BB-SESSION") String session, @QueryMap Map<String, String> query);
 
     /**
      * User Management
@@ -135,7 +136,7 @@ public interface Client {
      * @return
      */
     @PUT("/me/password")
-    public SuccessResponse changePassword(@Header("X-BB-SESSION") String session, @Body ChangePasswordJson json);
+    public StringResponse changePassword(@Header("X-BB-SESSION") String session, @Body ChangePasswordJson json);
 
     /**
      * User Management
@@ -145,7 +146,7 @@ public interface Client {
      * @return
      */
     @PUT("/me/username")
-    public SuccessResponse changeUsername(@Header("X-BB-SESSION") String session, @Body ChangeUsernameJson json);
+    public StringResponse changeUsername(@Header("X-BB-SESSION") String session, @Body ChangeUsernameJson json);
 
     /**
      * User Management
@@ -185,7 +186,7 @@ public interface Client {
     public SuccessResponse followUser(@Header("X-BB-SESSION") String session, @Path("username") String username, @Body String mock);
 
     @DELETE("/follow/{username}")
-    public SuccessResponse unfollowUser(@Header("X-BB-SESSION") String session, @Path("username") String username);
+    public StringResponse unfollowUser(@Header("X-BB-SESSION") String session, @Path("username") String username);
 
     @GET("/following/{username}")
     public SuccessResponse fetchFollowing(@Header("X-BB-SESSION") String session, @Path("username") String username);
@@ -194,19 +195,19 @@ public interface Client {
     public SuccessResponse fetchFollowers(@Header("X-BB-SESSION") String session, @Path("username") String username);
 
     @PUT("/push/enable/{os}/{token}")
-    public SuccessResponse enablePushNotification(@Header("X-BB-SESSION") String session, @Path("os") String os, @Path("token") String token, @Body String mock);
+    public StringResponse enablePushNotification(@Header("X-BB-SESSION") String session, @Path("os") String os, @Path("token") String token, @Body String mock);
 
     @PUT("/push/disable/{token}")
-    public SuccessResponse disablePushNotification(@Header("X-BB-SESSION") String session, @Path("token") String token, @Body String mock);
+    public StringResponse disablePushNotification(@Header("X-BB-SESSION") String session, @Path("token") String token, @Body String mock);
 
     @POST("/push/message")
-    public SuccessResponse sendPushNotification(@Header("X-BB-SESSION") String session, @Body SendPushNotificationJson json);
+    public StringResponse sendPushNotification(@Header("X-BB-SESSION") String session, @Body SendPushNotificationJson json);
 
     @POST("/admin/collection/{collection}")
-    public SuccessResponse createNewCollection(@Header("X-BB-SESSION") String session, @Path("collection") String collection, @Body String mock);
+    public StringResponse createCollection(@Header("X-BB-SESSION") String session, @Path("collection") String collection, @Body String mock);
 
     @DELETE("/admin/collection/{collection}")
-    public SuccessResponse deleteCollection(@Header("X-BB-SESSION") String session, @Path("collection") String collection);
+    public StringResponse deleteCollection(@Header("X-BB-SESSION") String session, @Path("collection") String collection);
 
     @POST("/document/{collection}")
     public SuccessResponse createDocument(@Header("X-BB-SESSION") String session, @Path("collection") String collection, @Body Map<String, Object> document);
@@ -215,7 +216,7 @@ public interface Client {
     public SuccessResponse retrieveDocumentById(@Header("X-BB-SESSION") String session, @Path("collection") String collection, @Path("id") String id);
 
     @GET("/document/{collection}")
-    public SuccessResponse retrieveDocumentByQuery(@Header("X-BB-SESSION") String session, @Path("collection") String collection);
+    public ArrayResponse retrieveDocumentByQuery(@Header("X-BB-SESSION") String session, @Path("collection") String collection, @QueryMap Map<String, String> query);
 
     @GET("/document/{collection}/count")
     public SuccessResponse countDocument(@Header("X-BB-SESSION") String session, @Path("collection") String collection);
@@ -227,19 +228,19 @@ public interface Client {
     public SuccessResponse updateDocumentField(@Header("X-BB-SESSION") String session, @Path("collection") String collection, @Path("id") String id, @Path("field") String field, @Body Object data);
 
     @DELETE("/document/{collection}/{id}")
-    public SuccessResponse deleteDocument(@Header("X-BB-SESSION") String session, @Path("collection") String collection, @Path("id") String id);
+    public StringResponse deleteDocument(@Header("X-BB-SESSION") String session, @Path("collection") String collection, @Path("id") String id);
 
     @PUT("/document/{collection}/{id}/{action}/user/{username}")
-    public SuccessResponse grantPermissionsDocumentUsername(@Header("X-BB-SESSION") String session, @Path("collection") String collection, @Path("id") String id, @Path("action") String action, @Path("username") String username, @Body String mock);
+    public StringResponse grantPermissionsDocumentUsername(@Header("X-BB-SESSION") String session, @Path("collection") String collection, @Path("id") String id, @Path("action") String action, @Path("username") String username, @Body String mock);
 
     @PUT("/document/{collection}/{id}/{action}/role/{rolename}")
-    public SuccessResponse grantPermissionsDocumentRoleName(@Header("X-BB-SESSION") String session, @Path("collection") String collection, @Path("id") String id, @Path("action") String action, @Path("rolename") String rolename, @Body String mock);
+    public StringResponse grantPermissionsDocumentRoleName(@Header("X-BB-SESSION") String session, @Path("collection") String collection, @Path("id") String id, @Path("action") String action, @Path("rolename") String rolename, @Body String mock);
 
     @DELETE("/document/{collection}/{id}/{action}/user/{username}")
-    public SuccessResponse revokePermissionsDocumentUsername(@Header("X-BB-SESSION") String session, @Path("collection") String collection, @Path("id") String id, @Path("action") String action, @Path("username") String username);
+    public StringResponse revokePermissionsDocumentUsername(@Header("X-BB-SESSION") String session, @Path("collection") String collection, @Path("id") String id, @Path("action") String action, @Path("username") String username);
 
     @DELETE("/document/{collection}/{id}/{action}/role/{rolename}")
-    public SuccessResponse revokePermissionsDocumentRoleName(@Header("X-BB-SESSION") String session, @Path("collection") String collection, @Path("id") String id, @Path("action") String action, @Path("rolename") String rolename);
+    public StringResponse revokePermissionsDocumentRoleName(@Header("X-BB-SESSION") String session, @Path("collection") String collection, @Path("id") String id, @Path("action") String action, @Path("rolename") String rolename);
 
     @POST("/link/{sourceId}/{label}/{destinationId}")
     public SuccessResponse createLink(@Header("X-BAASBOX-APPCODE") String appCode, @Header("X-BB-SESSION") String session, @Path("sourceId") String sourceId, @Path("label") String label, @Path("destinationId") String destinationId, @Body String mock);
@@ -251,14 +252,17 @@ public interface Client {
     public SuccessResponse retrieveLink(@Header("X-BAASBOX-APPCODE") String appCode, @Header("X-BB-SESSION") String session, @Path("id") String id);
 
     @GET("/link")
-    public SuccessResponse retrieveLink(@Header("X-BAASBOX-APPCODE") String appCode, @Header("X-BB-SESSION") String session);
+    public SuccessResponse retrieveLink(@Header("X-BAASBOX-APPCODE") String appCode, @Header("X-BB-SESSION") String session, @QueryMap Map<String, String> query);
+
+    @DELETE("/link/{id}")
+    public StringResponse deleteLink(@Header("X-BAASBOX-APPCODE") String appCode, @Header("X-BB-SESSION") String session, @Path("id") String id);
 
     @Multipart
     @POST("/file")
     public SuccessResponse uploadFile(@Header("X-BB-SESSION") String session, @Part("file") TypedFile file, @Part("attachedData") String attachedData, @Part("acl") String acl);
 
     @DELETE("/file/{id}")
-    public SuccessResponse deleteFile(@Header("X-BB-SESSION") String session, @Path("id") String id);
+    public StringResponse deleteFile(@Header("X-BB-SESSION") String session, @Path("id") String id);
 
     @GET("/file/{id}")
     @Streaming
@@ -268,12 +272,53 @@ public interface Client {
     public SuccessResponse retrieveFileDetail(@Header("X-BB-SESSION") String session, @Path("id") String id);
 
     @GET("/file/details")
-    public SuccessResponse retrieveFilesDetail(@Header("X-BB-SESSION") String session);
+    public SuccessResponse retrieveFilesDetail(@Header("X-BB-SESSION") String session, @QueryMap Map<String, String> query);
 
     @PUT("/file/{id}/{action}/user/{username}")
-    public SuccessResponse grantFileAccessUsername(@Header("X-BB-SESSION") String session, @Path("id") String id, @Path("action") String action, @Path("username") String username);
+    public StringResponse grantFileAccessUsername(@Header("X-BB-SESSION") String session, @Path("id") String id, @Path("action") String action, @Path("username") String username, @Body String mock);
 
     @PUT("/file/{id}/{action}/user/{rolename}")
-    public SuccessResponse grantFileAccessRoleName(@Header("X-BB-SESSION") String session, @Path("id") String id, @Path("action") String action, @Path("rolename") String rolename);
+    public StringResponse grantFileAccessRoleName(@Header("X-BB-SESSION") String session, @Path("id") String id, @Path("action") String action, @Path("rolename") String rolename, @Body String mock);
+
+    @DELETE("/file/{id}/{action}/user/{username}")
+    public StringResponse revokeFileAccessUsername(@Header("X-BB-SESSION") String session, @Path("id") String id, @Path("action") String action, @Path("username") String username);
+
+    @DELETE("/file/{id}/{action}/user/{rolename}")
+    public StringResponse revokeFileAccessRoleName(@Header("X-BB-SESSION") String session, @Path("id") String id, @Path("action") String action, @Path("rolename") String rolename);
+
+    @POST("/admin/asset")
+    @Multipart
+    public SuccessResponse createAsset(@Header("X-BB-SESSION") String session, @Part("name") String name, @Part("meta") String meta, @Part("file") TypedFile file);
+
+    @GET("/asset/{name}")
+    @Streaming
+    public Response retrieveAsset(@Header("X-BAASBOX-APPCODE") String appCode, @Path("name") String name);
+
+    @DELETE("/admin/asset/{name}")
+    public StringResponse deleteAsset(@Header("X-BB-SESSION") String session, @Path("name") String name);
+
+    @GET("/admin/asset")
+    public SuccessResponse fetchAsset(@Header("X-BB-SESSION") String session, @QueryMap Map<String, String> query);
+
+    @GET("/admin/configuration/dump.json")
+    public SuccessResponse fetchCurrentSetting(@Header("X-BAASBOX-APPCODE") String appCode, @Header("X-BB-SESSION") String session);
+
+    @GET("/admin/configuration/{section}")
+    public SuccessResponse fetchSectionSetting(@Header("X-BAASBOX-APPCODE") String appCode, @Header("X-BB-SESSION") String session, @Path("section") String section);
+
+    @PUT("/admin/configuration/{section}/{key}/{value}")
+    public StringResponse updateValueSetting(@Header("X-BAASBOX-APPCODE") String appCode, @Header("X-BB-SESSION") String session, @Path("section") String section, @Path("key") String key, @Path("value") String value, @Body String mock);
+
+    @GET("/admin/endpoints")
+    public SuccessResponse listGroup(@Header("X-BAASBOX-APPCODE") String appCode, @Header("X-BB-SESSION") String session);
+
+    @GET("/admin/endpoints/{name}")
+    public SuccessResponse readSpecificGroup(@Header("X-BAASBOX-APPCODE") String appCode, @Header("X-BB-SESSION") String session, @Path("name") String name);
+
+    @PUT("/admin/endpoints/{name}/enabled")
+    public StringResponse enableEndpointGroup(@Header("X-BAASBOX-APPCODE") String appCode, @Header("X-BB-SESSION") String session, @Path("name") String name, @Body String mock);
+
+    @DELETE("/admin/endpoints/{name}/enabled")
+    public StringResponse disableEndpointGroup(@Header("X-BAASBOX-APPCODE") String appCode, @Header("X-BB-SESSION") String session, @Path("name") String name);
 
 }

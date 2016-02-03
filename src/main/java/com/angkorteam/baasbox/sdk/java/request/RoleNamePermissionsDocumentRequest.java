@@ -3,7 +3,7 @@ package com.angkorteam.baasbox.sdk.java.request;
 /**
  * Created by socheatkhauv on 1/19/16.
  */
-public class RoleNamePermissionsDocumentRequest extends GrantPermissionsDocumentRequest {
+public class RoleNamePermissionsDocumentRequest extends PermissionsDocumentRequest {
 
     private String rolename;
 
