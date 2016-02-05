@@ -165,22 +165,22 @@ public interface Client {
     public SuccessResponse social(@Header("X-BB-SESSION") String session);
 
     @POST("/social/{socialNetwork}")
-    public SuccessResponse socialLogin(@Header("X-BAASBOX-APPCODE") String appCode, @Header("X-BB-SESSION") String session, @Header("socialNetwork") String socialNetwork, @Body SocialLoginJson json);
+    public SuccessResponse socialLogin(@Header("X-BAASBOX-APPCODE") String appCode, @Header("X-BB-SESSION") String session, @Path("socialNetwork") String socialNetwork, @Body SocialLoginJson json);
 
     @POST("/social/{socialNetwork}")
-    public SuccessResponse socialLogin(@Header("X-BB-SESSION") String session, @Header("socialNetwork") String socialNetwork, @Body SocialLoginJson json);
+    public SuccessResponse socialLogin(@Header("X-BB-SESSION") String session, @Path("socialNetwork") String socialNetwork, @Body SocialLoginJson json);
 
     @PUT("/social/{socialNetwork}")
-    public SuccessResponse socialLink(@Header("X-BAASBOX-APPCODE") String appCode, @Header("X-BB-SESSION") String session, @Header("socialNetwork") String socialNetwork, @Body SocialLinkJson json);
+    public SuccessResponse socialLink(@Header("X-BAASBOX-APPCODE") String appCode, @Header("X-BB-SESSION") String session, @Path("socialNetwork") String socialNetwork, @Body SocialLinkJson json);
 
     @PUT("/social/{socialNetwork}")
-    public SuccessResponse socialLink(@Header("X-BB-SESSION") String session, @Header("socialNetwork") String socialNetwork, @Body SocialLinkJson json);
+    public SuccessResponse socialLink(@Header("X-BB-SESSION") String session, @Path("socialNetwork") String socialNetwork, @Body SocialLinkJson json);
 
     @DELETE("/social/{socialNetwork}")
-    public SuccessResponse socialUnlink(@Header("X-BAASBOX-APPCODE") String appCode, @Header("X-BB-SESSION") String session);
+    public SuccessResponse socialUnlink(@Header("X-BAASBOX-APPCODE") String appCode, @Header("X-BB-SESSION") String session, @Path("socialNetwork") String socialNetwork);
 
     @DELETE("/social/{socialNetwork}")
-    public SuccessResponse socialUnlink(@Header("X-BB-SESSION") String session);
+    public SuccessResponse socialUnlink(@Header("X-BB-SESSION") String session, @Path("socialNetwork") String socialNetwork);
 
     @POST("/follow/{username}")
     public SuccessResponse followUser(@Header("X-BB-SESSION") String session, @Path("username") String username, @Body String mock);

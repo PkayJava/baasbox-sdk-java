@@ -523,14 +523,14 @@ public class BaasBox {
         }
     }
 
-    public Response socialUnlink() {
+    public Response socialUnlink(String socialNetwork) {
         try {
             if (appCode != null && !"".equals(appCode) && session != null && !"".equals(session)) {
-                SuccessResponse response = this.client.socialUnlink(appCode, session);
+                SuccessResponse response = this.client.socialUnlink(appCode, session, socialNetwork);
                 return response;
             }
             if (session != null && !"".equals(session)) {
-                SuccessResponse response = this.client.socialUnlink(session);
+                SuccessResponse response = this.client.socialUnlink(session, socialNetwork);
                 return response;
             }
             return null;
