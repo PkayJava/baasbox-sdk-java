@@ -224,7 +224,7 @@ public interface Client {
     @PUT("/document/{collection}/{id}")
     public SuccessResponse modifyDocument(@Header("X-BB-SESSION") String session, @Path("collection") String collection, @Path("id") String id, @Body Map<String, Object> document);
 
-    @PUT("/document/{collection}/{id}/.{field}")
+    @PUT("/document/{collection}/{id}/{field}")
     public SuccessResponse updateDocumentField(@Header("X-BB-SESSION") String session, @Path("collection") String collection, @Path("id") String id, @Path("field") String field, @Body Object data);
 
     @DELETE("/document/{collection}/{id}")
